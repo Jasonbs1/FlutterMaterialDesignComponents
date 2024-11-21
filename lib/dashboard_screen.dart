@@ -15,9 +15,20 @@ class DashboardScreen extends StatelessWidget {
       backgroundColor: Color(0xFFFFF0),
       appBar: AppBar(
         backgroundColor: Color(0xFF769FCD),
-        title: Text(
-          'Chains',
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+        title: Row(
+          children: [
+            // Menambahkan Logo di sebelah kiri
+            Image.asset(
+              'assets/logo1.png', // Ganti dengan path logo Anda
+              height: 30,
+            ),
+            SizedBox(width: 10),
+            // Teks judul aplikasi di sebelah logo
+            Text(
+              'Chains',
+              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+            ),
+          ],
         ),
         centerTitle: true,
         actions: [
