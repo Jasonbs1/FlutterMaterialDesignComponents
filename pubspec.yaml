@@ -19,11 +19,12 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/logo.png
+    - assets/logo1.png
     - assets/animation1.json
     - assets/animation2.json
     - assets/animation3.json
-    - assets/product1.png
-    - assets/product2.jpg
-    - assets/product3.png
-    - assets/product4.png
+    - assets/Chains1.png
+    - assets/Chains2.png
+    - assets/Chains3.png
+    - assets/Chains4.png
+
