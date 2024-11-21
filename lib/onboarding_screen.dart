@@ -16,37 +16,73 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     {'animation': 'assets/animation3.json', 'text': 'Start shopping now!'},
   ];
 
+  final PageController _pageController = PageController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Lottie.asset(_onboardingData[_currentPage]['animation']!, height: 300),
-          SizedBox(height: 20),
-          Text(
-            _onboardingData[_currentPage]['text']!,
-            style: TextStyle(fontSize: 20),
+          Expanded(
+            child: PageView.builder(
+              controller: _pageController,
+              itemCount: _onboardingData.length,
+              onPageChanged: (index) {
+                setState(() {
+                  _currentPage = index;
+                });
+              },
+              itemBuilder: (context, index) {
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Lottie.asset(_onboardingData[index]['animation']!,
+                        height: 300),
+                    SizedBox(height: 20),
+                    Text(
+                      _onboardingData[index]['text']!,
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ],
+                );
+              },
+            ),
           ),
-          SizedBox(height: 40),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: List.generate(
+              _onboardingData.length,
+              (index) => AnimatedContainer(
+                duration: Duration(milliseconds: 300),
+                margin: EdgeInsets.symmetric(horizontal: 4.0),
+                height: 10.0,
+                width: _currentPage == index ? 20.0 : 10.0,
+                decoration: BoxDecoration(
+                  color: _currentPage == index ? Colors.blue : Colors.grey,
+                  borderRadius: BorderRadius.circular(5.0),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               if (_currentPage > 0)
-                ElevatedButton(
+                TextButton(
                   onPressed: () {
-                    setState(() {
-                      _currentPage--;
-                    });
+                    _pageController.previousPage(
+                        duration: Duration(milliseconds: 300),
+                        curve: Curves.ease);
                   },
                   child: Text('Previous'),
                 ),
               if (_currentPage < _onboardingData.length - 1)
-                ElevatedButton(
+                TextButton(
                   onPressed: () {
-                    setState(() {
-                      _currentPage++;
-                    });
+                    _pageController.nextPage(
+                        duration: Duration(milliseconds: 300),
+                        curve: Curves.ease);
                   },
                   child: Text('Next'),
                 ),
