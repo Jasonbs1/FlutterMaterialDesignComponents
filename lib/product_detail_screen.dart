@@ -79,7 +79,7 @@ class ProductDetailScreen extends StatelessWidget {
 
               // Product Description Text
               Text(
-                'This is a detailed description of ${product['name']}. It includes the features, benefits, and unique qualities of the product. Perfect for users who are curious about what makes it special!',
+                'Description of ${product['name']}.',
                 textAlign: TextAlign.justify,
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       fontSize: 16,
