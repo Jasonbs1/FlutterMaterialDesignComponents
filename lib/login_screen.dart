@@ -5,25 +5,42 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0),
-        child: Center(
+      backgroundColor: Color(0xFFFFF0),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              SizedBox(height: 60),
+
+              // Top Decoration (Optional)
+              Align(
+                alignment: Alignment.topCenter,
+                child: Container(
+                  width: 80,
+                  height: 5,
+                  decoration: BoxDecoration(
+                    color: Color(0xFF769FCD),
+                    borderRadius: BorderRadius.circular(2.5),
+                  ),
+                ),
+              ),
+              SizedBox(height: 30),
+
               // Logo
-              Image.asset('assets/logo.png', height: 100),
+              Image.asset('assets/logo1.png', height: 100),
               SizedBox(height: 20),
 
               // App Name
               Text(
-                'Commerception',
+                'Chains',
                 style: TextStyle(
-                  fontSize: 28,
+                  fontSize: 30,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blue[300],
+                  color: Colors.black,
                 ),
+                textAlign: TextAlign.center,
               ),
               SizedBox(height: 40),
 
@@ -31,9 +48,14 @@ class LoginScreen extends StatelessWidget {
               TextField(
                 decoration: InputDecoration(
                   labelText: 'Username',
-                  prefixIcon: Icon(Icons.person),
+                  labelStyle: TextStyle(color: Colors.black54),
+                  prefixIcon: Icon(Icons.person, color: Color(0xFF769FCD)),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide(color: Color(0xFF769FCD)),
                   ),
                 ),
               ),
@@ -44,9 +66,14 @@ class LoginScreen extends StatelessWidget {
                 obscureText: true,
                 decoration: InputDecoration(
                   labelText: 'Password',
-                  prefixIcon: Icon(Icons.lock),
+                  labelStyle: TextStyle(color: Colors.black54),
+                  prefixIcon: Icon(Icons.lock, color: Color(0xFF769FCD)),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide(color: Color(0xFF769FCD)),
                   ),
                 ),
               ),
@@ -55,7 +82,7 @@ class LoginScreen extends StatelessWidget {
               // Login Button
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue[700],
+                  backgroundColor: Color(0xFF769FCD),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
@@ -69,9 +96,20 @@ class LoginScreen extends StatelessWidget {
                 },
                 child: Text(
                   'Login',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
               ),
+              SizedBox(height: 20),
+
+              // Footer Text
+              Text(
+                'Don\'t have an account? Sign up',
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.black54,
+                ),
+              ),
+              SizedBox(height: 40),
             ],
           ),
         ),

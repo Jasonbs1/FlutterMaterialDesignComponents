@@ -8,11 +8,13 @@ class ProductDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFFFF0),
       appBar: AppBar(
         title: Text(
           product['name']!,
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
+        backgroundColor: Color(0xFF769FCD),  // Strong Blue for AppBar
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -44,6 +46,7 @@ class ProductDetailScreen extends StatelessWidget {
                       product['name']!,
                       style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                             fontWeight: FontWeight.bold,
+                            color: Colors.black, // Light Blue for Product Name
                           ),
                     ),
                   ),
@@ -64,19 +67,23 @@ class ProductDetailScreen extends StatelessWidget {
               Divider(thickness: 1, color: Colors.grey.shade300),
               SizedBox(height: 10),
 
-              // Product Description
+              // Product Description Header
               Text(
                 'Description',
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.bold,
+                      color: Colors.black, // Strong Blue for Section Headers
                     ),
               ),
               SizedBox(height: 5),
+
+              // Product Description Text
               Text(
                 'This is a detailed description of ${product['name']}. It includes the features, benefits, and unique qualities of the product. Perfect for users who are curious about what makes it special!',
                 textAlign: TextAlign.justify,
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       fontSize: 16,
+                      color: Colors.black, // Light Blue for Text
                     ),
               ),
               SizedBox(height: 20),
@@ -87,11 +94,13 @@ class ProductDetailScreen extends StatelessWidget {
                 children: [
                   Chip(
                     label: Text('Best Seller'),
-                    backgroundColor: Colors.amber.shade100,
+                    backgroundColor: Color(0xFFB9D7EA), // Light Blue Background for Chips
+                    labelStyle: TextStyle(color: Colors.black), // White Text for Chips
                   ),
                   Chip(
                     label: Text('New Arrival'),
-                    backgroundColor: Colors.blue.shade100,
+                    backgroundColor: Color(0xFFB9D7EA), // Light Blue Background for Chips
+                    labelStyle: TextStyle(color: Colors.black), // White Text for Chips
                   ),
                 ],
               ),
@@ -107,7 +116,7 @@ class ProductDetailScreen extends StatelessWidget {
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.amber.shade600,
+                  backgroundColor: Color(0xFFB9D7EA),  // Light Blue Background for the Button
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(25),
                   ),
@@ -119,6 +128,7 @@ class ProductDetailScreen extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
+                    color: Colors.black, // Strong Blue Text for the Button
                   ),
                 ),
               ),

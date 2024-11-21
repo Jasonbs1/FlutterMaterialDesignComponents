@@ -9,7 +9,7 @@ class CommerceptionApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Commerception',
+      title: 'Chains',
       theme: ThemeData.dark().copyWith(
         primaryColor: Colors.blue[800],
         scaffoldBackgroundColor: Colors.blueGrey[900],
